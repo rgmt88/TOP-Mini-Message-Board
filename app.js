@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import messageRoutes from './routes/messages.js';
 
 const app = express();
 
@@ -14,10 +15,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.get('/', (req, res) => {
-    res.render('index', { title: 'Mini Message Board' });
-});
+// Use messageRoutes for everything at root
+app.use('/', messageRoutes);
 
 // Start server
 const PORT = process.env.PORT || 3000;
