@@ -29,7 +29,16 @@ router.get('/new', (req, res) => {
 // POST /new --> handle form submit
 router.post('/new', (req, res) => {
     const { user, message } = req.body;
-    messages.push({ text: message, user, added: new Date() });
+
+    // Basic validation
+    if (!user?.trim() || !message?.trim()) {
+        return res.status(400).render('form', {
+            title: 'Add a New Message',
+            error: 'Both fields are required',
+        });
+    }
+
+    messages.push({ text: message.trim(), user: user.trim(), added: new Date() });
     res.redirect('/');
 });
 

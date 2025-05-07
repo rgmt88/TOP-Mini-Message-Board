@@ -7,6 +7,9 @@
 </head>
 <body>
     <h1><%= title %></h1>
+    <% if (typeof error !== 'undefined') { %>
+        <p style="color: red;"><%= error %></p>
+    <% } %>
     <form action="/new" method="post">
         <input type="text" name="user" placeholder="Your name" required />
         <br />
