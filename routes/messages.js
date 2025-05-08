@@ -18,7 +18,7 @@ const messages = [
 
 // GET / --> list of messages
 router.get('/', (req, res) => {
-    res.render('index', { title: 'Mini Message Board', messages });
+    res.render('index', { title: 'Mini Message Board', messages: messages.slice().reverse() });
 });
 
 // GET /new --> show new message form
