@@ -23,7 +23,12 @@
     
     <ul>
         <% messages.forEach(msg => { %>
-            <li><em>(<%= msg.added.toLocaleString() %>)</em> <strong><%= msg.user %></strong>: <%= msg.text %></li>
+            <li>
+                <a href="/message/<%= msg.id %>">
+                    <em>(<%= msg.added.toLocaleString() %>)</em>
+                    <strong><%= msg.user %></strong>: <%= msg.text %>
+                </a>
+            </li>
         <% }) %>
     </ul>
 </body>
