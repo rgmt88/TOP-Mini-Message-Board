@@ -25,8 +25,12 @@
         <% messages.forEach(msg => { %>
             <li>
                 <a href="/message/<%= msg.id %>">
-                    <em>(<%= msg.added.toLocaleString() %>)</em>
-                    <strong><%= msg.user_name %></strong>: <%= msg.text %>
+                    <div class="message-meta">
+                        <span><em>(<%= msg.added.toLocaleString() %>)</em></span>
+                        &nbsp;&nbsp;
+                        <span><strong><%= msg.user_name %></strong>:</span>
+                    </div>
+                    <pre class="message-text"><%= msg.text %></pre>
                 </a>
             </li>
         <% }) %>
